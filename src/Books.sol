@@ -13,7 +13,6 @@ contract Books {
     Book public book;
 
     modifier onlyOwner() {
-        // Add parentheses to the modifier
         require(msg.sender == owner, "You are not the Owner");
         _;
     }

@@ -1,12 +1,15 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+//SPDX-License-Identifier: MIT
+pragma solidity 0.8.13;
 
-import {Books} from "../src/Books.sol";
+import {Script, console} from "forge-std/Script.sol";
+import "../src/Books.sol";
 
-contract DeployBooks {
+contract DeployBooks is Script {
     Books public books;
 
     function run() public {
-        books = new Books("Programming Foundry", "Deepak Kumar Baria", 100);
+        vm.broadcast();
+        books = new Books("Programming Foundry", "Deepak Kumar", 100);
+        console.log("Books deployed at address: ", address(books));
     }
 }
